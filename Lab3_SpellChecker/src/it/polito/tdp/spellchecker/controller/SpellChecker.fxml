@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
    <top>
       <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
          <font>
@@ -34,9 +33,9 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <MenuButton fx:id="btnLanguage" mnemonicParsing="false" onAction="#setDictionary" text="English">
+                  <MenuButton fx:id="btnLanguage" mnemonicParsing="false" text="English">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Italiano" />
+                      <MenuItem fx:id="btnItalian" mnemonicParsing="false" onAction="#setItaliano" text="Italiano" />
                     </items>
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -44,7 +43,7 @@
                   </MenuButton>
                </children>
             </HBox>
-            <TextArea>
+            <TextArea fx:id="txtInput">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
@@ -63,7 +62,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <TextArea editable="false">
+            <TextArea fx:id="txtResult" editable="false">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
