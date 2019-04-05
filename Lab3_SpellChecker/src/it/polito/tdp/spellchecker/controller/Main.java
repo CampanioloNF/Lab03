@@ -25,7 +25,7 @@ public class Main extends Application {
 			SpellCheckerController controller = loader.getController();
 			controller.setModel(model);
 			
-			controller.caricaDizionari();
+		    model.loadDictionary();
 			
 			primaryStage.show();
 		} catch(Exception e) {

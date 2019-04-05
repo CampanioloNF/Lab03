@@ -57,16 +57,13 @@ public class SpellCheckerController {
     	
     }
 
-    
-    public void caricaDizionari() {
-    	this.model.loadDictionary();
-    }
-    
+
     @FXML
     void doSpellCheck(ActionEvent event) {
 
     	long time = System.currentTimeMillis();
     	
+    	//pulizia Stringa
     	String input = this.txtInput
     			.getText()
     			.toLowerCase()
