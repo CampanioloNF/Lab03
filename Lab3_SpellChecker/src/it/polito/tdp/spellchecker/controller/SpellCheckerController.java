@@ -57,32 +57,36 @@ public class SpellCheckerController {
     	
     }
 
+    
+    public void caricaDizionari() {
+    	this.model.loadDictionary();
+    }
+    
     @FXML
     void doSpellCheck(ActionEvent event) {
 
     	long time = System.currentTimeMillis();
     	
-    	String input = this.txtInput.getText().toLowerCase();
+    	String input = this.txtInput
+    			.getText()
+    			.toLowerCase()
+    			.replaceAll("[.,\\\\/#!?$%\\\\^&\\\\*;:{}=\\\\-_`~()\\\\[\\\\]\\\"]", "");
     	    	
-        String inClean =  input.replaceAll("[.,\\\\/#!?$%\\\\^&\\\\*;:{}=\\\\-_`~()\\\\[\\\\]\\\"]", "");
     	
-        
- 
-        this.model.loadDictionary(this.btnLanguage.getText());
-        
-      
         //mando una lista di String che corrisponde alle parole caricate
         List <String> parole = new ArrayList <String>();
         
-        String [] arr = inClean.split(" ");
+        String [] arr = input.split(" ");
         
         for(String s : arr) {
         	
         	parole.add(s);
         }
         
+        String lingua = this.btnLanguage.getText();
+        
         //la controllo  e ricevo le parole errate
-        List <RichWord> output = this.model.spellCheckText(parole);
+        List <RichWord> output = this.model.spellCheckText(parole, lingua);
         
         List <String> wrongs = new ArrayList <String>();
 
@@ -100,7 +104,7 @@ public class SpellCheckerController {
         this.txtError.setText("The text contains "+wrongs.size()+" errors");
         this.txtTime.setText("Spell check completed in "+ora+" seconds" );
         
-        this.model.clear();
+       
         
     }
     

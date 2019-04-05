@@ -2,6 +2,7 @@ package it.polito.tdp.spellchecker.controller.model;
 
 public class RichWord {
 
+	/* questa è una classe BEAN (contenitore)*/
 	private String parola;
 	private boolean isOk;
 	
