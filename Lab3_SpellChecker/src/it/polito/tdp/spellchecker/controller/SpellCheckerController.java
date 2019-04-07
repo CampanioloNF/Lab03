@@ -61,6 +61,8 @@ public class SpellCheckerController {
     @FXML
     void doSpellCheck(ActionEvent event) {
 
+    	this.txtResult.clear();
+    	
     	long time = System.currentTimeMillis();
     	
     	//pulizia Stringa
